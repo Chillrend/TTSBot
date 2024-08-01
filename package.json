@@ -1,0 +1,23 @@
+{
+  "name": "simple-tts-bot",
+  "version": "1.0.0",
+  "description": "Simple TTS BOT",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "TTS"
+  ],
+  "author": "Chillrend",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^5.3.0",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5"
+  }
+}
