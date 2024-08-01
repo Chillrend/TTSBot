@@ -1,5 +1,4 @@
 const {Client, Collection, Events, GatewayIntentBits} = require('discord.js');
-const { TextToSpeechClient } = require('@google-cloud/text-to-speech');
 const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv').config();
@@ -9,8 +8,6 @@ const client = new Client({intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildVoiceStates
     ]})
-
-const ttsClient = new TextToSpeechClient();
 
 client.once('ready', () => {
     console.log('Bot is online!');
@@ -57,21 +54,5 @@ client.on(Events.InteractionCreate, async interaction => {
         }
     }
 });
-// client.on('message', async message => {
-//     if (message.content.startsWith('!speak')) {
-//         const text = message.content.replace('!speak', '').trim();
-//         const [response] = await ttsClient.synthesizeSpeech({
-//             input: { text },
-//             voice: { languageCode: 'en-US', ssmlGender: 'NEUTRAL' },
-//             audioConfig: { audioEncoding: 'MP3' },
-//         });
-//
-//         const audioFileName = `./audio/${Date.now()}.mp3`;
-//         fs.writeFileSync(audioFileName, response.audioContent, 'binary');
-//
-//         // Here you would add the code to play the audio in a voice channel
-//         // This requires connecting to the voice channel and streaming the audio
-//     }
-// });
 
 client.login(process.env.DISCORD_TOKEN);
